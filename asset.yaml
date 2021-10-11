@@ -1,0 +1,967 @@
+# BUCKET - Fitness Teacher
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-teacher
+spec:
+  title: Fitness Teacher
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    surname:
+      type: string
+      title: surname
+      description: Description of the surname input
+      options:
+        position: bottom
+    passwowrd:
+      type: string
+      title: password
+      description: Description of the passwowrd input
+      options:
+        position: bottom
+    mail:
+      type: string
+      title: mail
+      description: Description of the mail input
+      options:
+        position: bottom
+    phone_number:
+      type: string
+      title: phone_number
+      description: Description of the phone_number input
+      options:
+        position: bottom
+    gender:
+      type: string
+      title: gender
+      description: Description of the gender input
+      options:
+        position: bottom
+      enum:
+        - male
+        - female
+        - other
+    images:
+      type: storage
+      title: image
+      description: Description of the images input
+      options:
+        position: bottom
+    birthday:
+      type: date
+      title: birthday
+      description: Description of the birthday input
+      options:
+        position: bottom
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+    brans:
+      type: string
+      title: brans
+      description: Description of the brans input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 25
+---
+# BUCKET - Fitness Video Packet
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-video-packet
+spec:
+  title: Fitness Video Packet
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+  acl:
+    write: true==true
+    read: true==true
+  order: 27
+---
+# BUCKET - Fitness Food Program
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-food-program
+spec:
+  title: Fitness Food Program
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+  acl:
+    write: true==true
+    read: true==true
+  order: 28
+---
+# BUCKET - Fitness Video
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-video
+spec:
+  title: Fitness Video
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of the row
+      options:
+        position: right
+    images:
+      type: array
+      title: images
+      description: Description of the images input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: storage
+    vip_permission:
+      type: boolean
+      title: vip_permission
+      description: Description of the vip_permission input
+      options:
+        position: bottom
+      default: false
+    lenght:
+      type: number
+      title: lenght
+      description: Description of the lenght input
+      options:
+        position: bottom
+    video:
+      type: storage
+      title: video
+      description: Description of the video input
+      options:
+        position: bottom
+    upload_date:
+      type: date
+      title: upload_date
+      description: Description of the upload_date input
+      options:
+        position: bottom
+      default: :created_at
+  acl:
+    write: true==true
+    read: true==true
+  order: 29
+---
+# BUCKET - Fitness Performance
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-performance
+spec:
+  title: Fitness Performance
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: title
+      description: Description of the title input
+      options:
+        position: bottom
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+    metrics:
+      type: array
+      title: metrics
+      description: Description of the metrics input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: object
+        properties:
+          value:
+            type: number
+            title: value
+            description: Description of the value input
+            options:
+              position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 31
+---
+# BUCKET - Fitness Traning
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-traning
+spec:
+  title: Fitness Traning
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+  acl:
+    write: true==true
+    read: true==true
+  order: 33
+---
+# BUCKET - fitness my watching video
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-my-watching-video
+spec:
+  title: fitness my watching video
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+  acl:
+    write: true==true
+    read: true==true
+  order: 34
+---
+# BUCKET - Fitness User
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-user
+spec:
+  title: Fitness User
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    surname:
+      type: string
+      title: surname
+      description: Description of the surname input
+      options:
+        position: bottom
+    gender:
+      type: string
+      title: gender
+      description: Description of the gender input
+      options:
+        position: bottom
+    vip_permission:
+      type: boolean
+      title: vip_permission
+      description: Description of the vip_permission input
+      options:
+        position: bottom
+      default: false
+    birthdate:
+      type: date
+      title: birthdate
+      description: Description of the birthdate input
+      options:
+        position: bottom
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+    password:
+      type: string
+      title: password
+      description: Description of the password input
+      options:
+        position: bottom
+    phone_number:
+      type: string
+      title: phone_number
+      description: Description of the phone_number input
+      options:
+        position: bottom
+    mail:
+      type: string
+      title: mail
+      description: Description of the mail input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 24
+---
+# BUCKET - Fitness Teacher
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-teacher
+spec:
+  title: Fitness Teacher
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    surname:
+      type: string
+      title: surname
+      description: Description of the surname input
+      options:
+        position: bottom
+    passwowrd:
+      type: string
+      title: password
+      description: Description of the passwowrd input
+      options:
+        position: bottom
+    mail:
+      type: string
+      title: mail
+      description: Description of the mail input
+      options:
+        position: bottom
+    phone_number:
+      type: string
+      title: phone_number
+      description: Description of the phone_number input
+      options:
+        position: bottom
+    gender:
+      type: string
+      title: gender
+      description: Description of the gender input
+      options:
+        position: bottom
+      enum:
+        - male
+        - female
+        - other
+    images:
+      type: storage
+      title: image
+      description: Description of the images input
+      options:
+        position: bottom
+    birthday:
+      type: date
+      title: birthday
+      description: Description of the birthday input
+      options:
+        position: bottom
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+    brans:
+      type: string
+      title: brans
+      description: Description of the brans input
+      options:
+        position: bottom
+    branch:
+      type: relation
+      title: branch
+      description: Description of the branch input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      bucket:
+        resourceFieldRef:
+          schemaName: teacher-branch
+  acl:
+    write: true==true
+    read: true==true
+  order: 25
+---
+# BUCKET - Fitness Video Category
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-video-category
+spec:
+  title: Fitness Video Category
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of the row
+      options:
+        position: right
+    image:
+      type: storage
+      title: image
+      description: Description of the image input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 26
+---
+# BUCKET - Fitness Video Packet
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-video-packet
+spec:
+  title: Fitness Video Packet
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    video:
+      type: relation
+      title: video
+      description: Description of the video input
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: username
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-video
+  acl:
+    write: true==true
+    read: true==true
+  order: 27
+---
+# BUCKET - Fitness Food Program
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-food-program
+spec:
+  title: Fitness Food Program
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    username:
+      type: relation
+      title: user
+      description: Description of the username input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-user
+    teacher:
+      type: relation
+      title: teacher
+      description: Description of the teacher input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-teacher
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+  acl:
+    write: true==true
+    read: true==true
+  order: 28
+---
+# BUCKET - Fitness Video
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-video
+spec:
+  title: Fitness Video
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of the row
+      options:
+        position: right
+    images:
+      type: array
+      title: images
+      description: Description of the images input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: storage
+    vip_permission:
+      type: boolean
+      title: vip_permission
+      description: Description of the vip_permission input
+      options:
+        position: bottom
+      default: false
+    lenght:
+      type: number
+      title: lenght
+      description: Description of the lenght input
+      options:
+        position: bottom
+    video:
+      type: storage
+      title: video
+      description: Description of the video input
+      options:
+        position: bottom
+    video_teacher:
+      type: relation
+      title: video_teacher
+      description: Description of the video_teacher input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-teacher
+    category:
+      type: relation
+      title: category
+      description: Description of the category input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-video-category
+    upload_date:
+      type: date
+      title: upload_date
+      description: Description of the upload_date input
+      options:
+        position: bottom
+      default: :created_at
+  acl:
+    write: true==true
+    read: true==true
+  order: 29
+---
+# BUCKET - Fitness Weekly Program
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-weekly-program
+spec:
+  title: Fitness Weekly Program
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of the row
+      options:
+        position: right
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+    images:
+      type: array
+      title: images
+      description: Description of the images input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: storage
+  acl:
+    write: true==true
+    read: true==true
+  order: 30
+---
+# BUCKET - Fitness Performance
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-performance
+spec:
+  title: Fitness Performance
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: title
+      description: Description of the title input
+      options:
+        position: bottom
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-user
+    teacher:
+      type: relation
+      title: teacher
+      description: Description of the teacher input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-teacher
+    date:
+      type: date
+      title: created_date
+      description: Description of the date input
+      options:
+        position: bottom
+      default: :created_at
+    metrics:
+      type: array
+      title: metrics
+      description: Description of the metrics input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: object
+        properties:
+          value:
+            type: number
+            title: value
+            description: Description of the value input
+            options:
+              position: bottom
+          metric:
+            type: relation
+            title: metric
+            description: Description of the metric input
+            options:
+              position: bottom
+            relationType: onetoone
+            dependent: false
+            bucket:
+              resourceFieldRef:
+                schemaName: fitness-metrics
+  acl:
+    write: true==true
+    read: true==true
+  order: 31
+---
+# BUCKET - Fitness Metrics
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-metrics
+spec:
+  title: Fitness Metrics
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    unit:
+      type: string
+      title: unit
+      description: Description of the unit input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 32
+---
+# BUCKET - Fitness Traning
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-traning
+spec:
+  title: Fitness Traning
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-user
+    packet:
+      type: relation
+      title: packet
+      description: Description of the packet input
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-video-packet
+    teacher:
+      type: relation
+      title: teacher
+      description: Description of the teacher input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-teacher
+  acl:
+    write: true==true
+    read: true==true
+  order: 33
+---
+# BUCKET - fitness my watching video
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: fitness-my-watching-video
+spec:
+  title: fitness my watching video
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-user
+    watching_video:
+      type: relation
+      title: watching_video
+      description: Description of the watching_video input
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: title
+      bucket:
+        resourceFieldRef:
+          schemaName: fitness-video
+  acl:
+    write: true==true
+    read: true==true
+  order: 34
+---
+# BUCKET - teacher branch 
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: teacher-branch
+spec:
+  title: "teacher branch "
+  description: Describe your new bucket
+  icon: view_stream
+  primary: title
+  readOnly: false
+  history: false
+  properties:
+    title:
+      type: string
+      title: name
+      description: Title of the row
+      options:
+        position: left
+  acl:
+    write: true==true
+    read: true==true
+  order: 35
