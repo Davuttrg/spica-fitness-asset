@@ -22,6 +22,7 @@ spec:
     write: true==true
     read: true==true
   order: 35
+---
 # BUCKET - Fitness Teacher
 apiVersion: bucket/v1
 kind: Schema
