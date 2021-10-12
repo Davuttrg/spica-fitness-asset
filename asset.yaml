@@ -4,78 +4,72 @@ kind: Schema
 metadata:
   name: fitness-teacher
 spec:
-  title: Fitness Teacher
-  description: Describe your new bucket
+  title: Teacher
+  description: Teacher Bucket
   icon: view_stream
-  primary: title
+  primary: mail
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Teacher
       options:
         position: left
     surname:
       type: string
       title: surname
-      description: Description of the surname input
-      options:
-        position: bottom
-    passwowrd:
-      type: string
-      title: password
-      description: Description of the passwowrd input
+      description: Surname of Teacher
       options:
         position: bottom
     mail:
       type: string
       title: mail
-      description: Description of the mail input
+      description: Mail of Teacher
       options:
         position: bottom
     phone_number:
       type: string
       title: phone_number
-      description: Description of the phone_number input
+      description: Phone Number of Teacher
+      options:
+        position: bottom
+    speciality:
+      type: string
+      title: speciality
+      description: Speciality of Teacher
       options:
         position: bottom
     gender:
       type: string
       title: gender
-      description: Description of the gender input
+      description: Gender of Teacher
       options:
         position: bottom
       enum:
         - male
         - female
         - other
-    images:
+    picture:
       type: storage
       title: image
-      description: Description of the images input
+      description: Profile Picture of Teacher
       options:
         position: bottom
     birthday:
       type: date
       title: birthday
-      description: Description of the birthday input
+      description: Birthday of Teacher
       options:
         position: bottom
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
-    brans:
-      type: string
-      title: brans
-      description: Description of the brans input
-      options:
-        position: bottom
   acl:
     write: true==true
     read: true==true
@@ -87,8 +81,8 @@ kind: Schema
 metadata:
   name: fitness-video-packet
 spec:
-  title: Fitness Video Packet
-  description: Describe your new bucket
+  title: Video Packet
+  description: Packet of Videos
   icon: view_stream
   primary: title
   readOnly: false
@@ -97,7 +91,7 @@ spec:
     title:
       type: string
       title: name
-      description: Title of the row
+      description: Title of packet
       options:
         position: left
   acl:
@@ -111,23 +105,23 @@ kind: Schema
 metadata:
   name: fitness-food-program
 spec:
-  title: Fitness Food Program
-  description: Describe your new bucket
+  title: Food Program
+  description: Food Program Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Program
       options:
         position: left
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
@@ -142,57 +136,54 @@ kind: Schema
 metadata:
   name: fitness-video
 spec:
-  title: Fitness Video
-  description: Describe your new bucket
+  title: Video
+  description: Video Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Video
       options:
         position: left
     description:
       type: textarea
       title: description
-      description: Description of the row
+      description: Description of Video
       options:
         position: right
-    images:
-      type: array
-      title: images
-      description: Description of the images input
+    image:
+      type: storage
+      title: image
+      description: Image of Video
       options:
         position: bottom
-      items:
-        title: Title of the items
-        type: storage
-    vip_permission:
+    vip:
       type: boolean
-      title: vip_permission
-      description: Description of the vip_permission input
+      title: vip
+      description: Is it only available for vip person ? 
       options:
         position: bottom
       default: false
-    lenght:
+    duration:
       type: number
-      title: lenght
-      description: Description of the lenght input
+      title: duration
+      description: Duration of Video
       options:
         position: bottom
     video:
       type: storage
       title: video
-      description: Description of the video input
+      description: Video File
       options:
         position: bottom
     upload_date:
       type: date
       title: upload_date
-      description: Description of the upload_date input
+      description: Entry Upload Date
       options:
         position: bottom
       default: :created_at
@@ -207,8 +198,8 @@ kind: Schema
 metadata:
   name: fitness-performance
 spec:
-  title: Fitness Performance
-  description: Describe your new bucket
+  title: Performance
+  description: Performance of User
   icon: view_stream
   primary: title
   readOnly: false
@@ -217,30 +208,30 @@ spec:
     title:
       type: string
       title: title
-      description: Description of the title input
+      description: Title of Performance
       options:
         position: bottom
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
     metrics:
       type: array
       title: metrics
-      description: Description of the metrics input
+      description: Metrics of Performance
       options:
         position: bottom
       items:
-        title: Title of the items
+        title: Items of Metrics
         type: object
         properties:
           value:
             type: number
             title: value
-            description: Description of the value input
+            description: Value of Item
             options:
               position: bottom
   acl:
@@ -248,23 +239,23 @@ spec:
     read: true==true
   order: 31
 ---
-# BUCKET - Fitness Traning
+# BUCKET - Fitness training
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-traning
+  name: fitness-training
 spec:
-  title: Fitness Traning
-  description: Describe your new bucket
+  title: Training
+  description: User Training
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
-      title: name
-      description: Title of the row
+      name: name
+      description: Name of Training
       options:
         position: left
   acl:
@@ -272,23 +263,23 @@ spec:
     read: true==true
   order: 33
 ---
-# BUCKET - fitness my watching video
+# BUCKET - fitness my watched video
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-my-watching-video
+  name: fitness-my-watched-video
 spec:
-  title: fitness my watching video
-  description: Describe your new bucket
+  title: Watched Video
+  description: Watched Video of User
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
-      title: name
-      description: Title of the row
+      name: name
+      description: Name
       options:
         position: left
   acl:
@@ -302,67 +293,65 @@ kind: Schema
 metadata:
   name: fitness-user
 spec:
-  title: Fitness User
-  description: Describe your new bucket
+  title: User
+  description: User Bucket
   icon: view_stream
-  primary: title
+  primary: mail
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
-      title: name
-      description: Title of the row
+      name: name
+      description: Name of User
       options:
         position: left
     surname:
       type: string
       title: surname
-      description: Description of the surname input
+      description: Surname of User
       options:
         position: bottom
-    gender:
+   gender:
       type: string
       title: gender
-      description: Description of the gender input
+      description: Gender of User
       options:
         position: bottom
-    vip_permission:
+      enum:
+        - male
+        - female
+        - other
+    vip:
       type: boolean
-      title: vip_permission
-      description: Description of the vip_permission input
+      title: vip
+      description: Is this User Vip?
       options:
         position: bottom
       default: false
     birthdate:
       type: date
       title: birthdate
-      description: Description of the birthdate input
+      description: Birthdate of User
       options:
         position: bottom
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
-    password:
-      type: string
-      title: password
-      description: Description of the password input
-      options:
-        position: bottom
     phone_number:
       type: string
       title: phone_number
-      description: Description of the phone_number input
+      description: Number of User
       options:
         position: bottom
     mail:
       type: string
       title: mail
-      description: Description of the mail input
+      description: Mail of User
       options:
         position: bottom
   acl:
@@ -376,89 +365,83 @@ kind: Schema
 metadata:
   name: fitness-teacher
 spec:
-  title: Fitness Teacher
-  description: Describe your new bucket
+  title: Teacher
+  description: Teacher Bucket
   icon: view_stream
-  primary: title
+  primary: mail
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Teacher
       options:
         position: left
     surname:
       type: string
       title: surname
-      description: Description of the surname input
-      options:
-        position: bottom
-    passwowrd:
-      type: string
-      title: password
-      description: Description of the passwowrd input
+      description: Surname of Teacher
       options:
         position: bottom
     mail:
       type: string
       title: mail
-      description: Description of the mail input
+      description: Mail of Teacher
       options:
         position: bottom
     phone_number:
       type: string
       title: phone_number
-      description: Description of the phone_number input
+      description: Phone Number of Teacher
+      options:
+        position: bottom
+    speciality:
+      type: string
+      title: speciality
+      description: Speciality of Teacher
       options:
         position: bottom
     gender:
       type: string
       title: gender
-      description: Description of the gender input
+      description: Gender of Teacher
       options:
         position: bottom
       enum:
         - male
         - female
         - other
-    images:
+    picture:
       type: storage
       title: image
-      description: Description of the images input
+      description: Profile Picture of Teacher
       options:
         position: bottom
     birthday:
       type: date
       title: birthday
-      description: Description of the birthday input
+      description: Birthday of Teacher
       options:
         position: bottom
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
-    brans:
-      type: string
-      title: brans
-      description: Description of the brans input
-      options:
-        position: bottom
-    branch:
+    speciality:
       type: relation
-      title: branch
-      description: Description of the branch input
+      title: speciality
+      description: Speciality of Teacher
       options:
         position: bottom
       relationType: onetoone
       dependent: false
       bucket:
         resourceFieldRef:
-          schemaName: teacher-branch
+          schemaName: teacher-speciality
   acl:
     write: true==true
     read: true==true
@@ -470,29 +453,29 @@ kind: Schema
 metadata:
   name: fitness-video-category
 spec:
-  title: Fitness Video Category
-  description: Describe your new bucket
+  title: Category
+  description: Category Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Category
       options:
         position: left
     description:
       type: textarea
       title: description
-      description: Description of the row
+      description: Description of Category
       options:
         position: right
     image:
       type: storage
       title: image
-      description: Description of the image input
+      description: Image of Category
       options:
         position: bottom
   acl:
@@ -506,8 +489,8 @@ kind: Schema
 metadata:
   name: fitness-video-packet
 spec:
-  title: Fitness Video Packet
-  description: Describe your new bucket
+  title: Video Packet
+  description: Packet of Videos
   icon: view_stream
   primary: title
   readOnly: false
@@ -516,18 +499,18 @@ spec:
     title:
       type: string
       title: name
-      description: Title of the row
+      description: Title of packet
       options:
         position: left
-    video:
+    videos:
       type: relation
-      title: video
-      description: Description of the video input
+      title: videos
+      description: Videos of Packet
       options:
         position: bottom
       relationType: onetomany
       dependent: false
-      primary: username
+      primary: name
       bucket:
         resourceFieldRef:
           schemaName: fitness-video
@@ -542,47 +525,47 @@ kind: Schema
 metadata:
   name: fitness-food-program
 spec:
-  title: Fitness Food Program
-  description: Describe your new bucket
+  title: Food Program
+  description: Food Program Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Program
       options:
         position: left
-    username:
+    user:
       type: relation
       title: user
-      description: Description of the username input
+      description: User of Program
       options:
         position: bottom
       relationType: onetoone
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-user
     teacher:
       type: relation
       title: teacher
-      description: Description of the teacher input
+      description: Teacher of Program
       options:
         position: bottom
       relationType: onetoone
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-teacher
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
       default: :created_at
@@ -597,57 +580,54 @@ kind: Schema
 metadata:
   name: fitness-video
 spec:
-  title: Fitness Video
-  description: Describe your new bucket
+  title: Video
+  description: Video Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Video
       options:
         position: left
     description:
       type: textarea
       title: description
-      description: Description of the row
+      description: Description of Video
       options:
         position: right
-    images:
-      type: array
-      title: images
-      description: Description of the images input
+    image:
+      type: storage
+      title: image
+      description: Image of Video
       options:
         position: bottom
-      items:
-        title: Title of the items
-        type: storage
-    vip_permission:
+    vip:
       type: boolean
-      title: vip_permission
-      description: Description of the vip_permission input
+      title: vip
+      description: Is it only available for vip person ? 
       options:
         position: bottom
       default: false
-    lenght:
+    duration:
       type: number
-      title: lenght
-      description: Description of the lenght input
+      title: duration
+      description: Duration of Video
       options:
         position: bottom
     video:
       type: storage
       title: video
-      description: Description of the video input
+      description: Video File
       options:
         position: bottom
-    video_teacher:
+    teacher:
       type: relation
-      title: video_teacher
-      description: Description of the video_teacher input
+      title: teacher
+      description: Teacher of Video
       options:
         position: bottom
       relationType: onetoone
@@ -658,7 +638,7 @@ spec:
     category:
       type: relation
       title: category
-      description: Description of the category input
+      description: Category of Video
       options:
         position: bottom
       relationType: onetoone
@@ -669,7 +649,7 @@ spec:
     upload_date:
       type: date
       title: upload_date
-      description: Description of the upload_date input
+      description: Entry Upload Date
       options:
         position: bottom
       default: :created_at
@@ -684,40 +664,32 @@ kind: Schema
 metadata:
   name: fitness-weekly-program
 spec:
-  title: Fitness Weekly Program
-  description: Describe your new bucket
+  title: Weekly Program
+  description: Weekly Program Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Weekly Program
       options:
         position: left
     description:
       type: textarea
       title: description
-      description: Description of the row
+      description: Description of Weekly Program
       options:
         position: right
-    date:
+    created_at:
       type: date
-      title: created_date
-      description: Description of the date input
+      title: created_at
+      description: Entry created date
       options:
         position: bottom
-    images:
-      type: array
-      title: images
-      description: Description of the images input
-      options:
-        position: bottom
-      items:
-        title: Title of the items
-        type: storage
+      default: :created_at
   acl:
     write: true==true
     read: true==true
@@ -729,105 +701,105 @@ kind: Schema
 metadata:
   name: fitness-performance
 spec:
-  title: Fitness Performance
-  description: Describe your new bucket
+  title: Performance
+  description: Performance of User
   icon: view_stream
   primary: title
   readOnly: false
   history: false
   properties:
-    title:
+     title:
       type: string
       title: title
-      description: Description of the title input
+      description: Title of Performance
       options:
         position: bottom
     user:
       type: relation
       title: user
-      description: Description of the user input
+      description: User of Performance
       options:
         position: bottom
       relationType: onetoone
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-user
     teacher:
       type: relation
       title: teacher
-      description: Description of the teacher input
+      description: Teacher of Performance
       options:
         position: bottom
       relationType: onetoone
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-teacher
-    date:
-      type: date
-      title: created_date
-      description: Description of the date input
-      options:
-        position: bottom
-      default: :created_at
     metrics:
       type: array
       title: metrics
-      description: Description of the metrics input
+      description: Metrics of Performance
       options:
         position: bottom
       items:
-        title: Title of the items
+        title: Items of Metrics
         type: object
         properties:
           value:
             type: number
             title: value
-            description: Description of the value input
+            description: Value of Item
             options:
               position: bottom
           metric:
             type: relation
             title: metric
-            description: Description of the metric input
+            description: Metric of Item
             options:
               position: bottom
             relationType: onetoone
             dependent: false
             bucket:
               resourceFieldRef:
-                schemaName: fitness-metrics
+                schemaName: fitness-metric
+    created_at:
+      type: date
+      title: created_at
+      description: Entry created date
+      options:
+        position: bottom
+      default: :created_at
   acl:
     write: true==true
     read: true==true
   order: 31
 ---
-# BUCKET - Fitness Metrics
+# BUCKET - Fitness Metric
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-metrics
+  name: fitness-metric
 spec:
-  title: Fitness Metrics
-  description: Describe your new bucket
+  title: Metric
+  description: Metric Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Metric
       options:
         position: left
     unit:
       type: string
       title: unit
-      description: Description of the unit input
+      description: Unit of Metric
       options:
         position: bottom
   acl:
@@ -835,41 +807,41 @@ spec:
     read: true==true
   order: 32
 ---
-# BUCKET - Fitness Traning
+# BUCKET - Fitness training
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-traning
+  name: fitness-training
 spec:
-  title: Fitness Traning
-  description: Describe your new bucket
+  title: Training
+  description: User Training
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
-      title: name
-      description: Title of the row
+      name: name
+      description: Name of Training
       options:
         position: left
     user:
       type: relation
       title: user
-      description: Description of the user input
+      description: User of Training
       options:
         position: bottom
       relationType: onetomany
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-user
     packet:
       type: relation
       title: packet
-      description: Description of the packet input
+      description: Packet of Training
       options:
         position: bottom
       relationType: onetomany
@@ -881,7 +853,7 @@ spec:
     teacher:
       type: relation
       title: teacher
-      description: Description of the teacher input
+      description: Teacher of Training
       options:
         position: bottom
       relationType: onetoone
@@ -894,46 +866,46 @@ spec:
     read: true==true
   order: 33
 ---
-# BUCKET - fitness my watching video
+# BUCKET - Watched Video
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-my-watching-video
+  name: fitness-my-watched-video
 spec:
-  title: fitness my watching video
-  description: Describe your new bucket
+  title: Watched Video
+  description: Watched Video of User
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
-      title: name
-      description: Title of the row
+      name: name
+      description: Name
       options:
         position: left
     user:
       type: relation
       title: user
-      description: Description of the user input
+      description: User of Watched Video
       options:
         position: bottom
       relationType: onetoone
       dependent: false
-      primary: title
+      primary: mail
       bucket:
         resourceFieldRef:
           schemaName: fitness-user
-    watching_video:
+    video:
       type: relation
-      title: watching_video
-      description: Description of the watching_video input
+      title: video
+      description: Video of Watched Video
       options:
         position: bottom
       relationType: onetomany
       dependent: false
-      primary: title
+      primary: name
       bucket:
         resourceFieldRef:
           schemaName: fitness-video
@@ -942,23 +914,23 @@ spec:
     read: true==true
   order: 34
 ---
-# BUCKET - teacher branch 
+# BUCKET - Speciality
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: teacher-branch
+  name: teacher-speciality
 spec:
-  title: "teacher branch "
-  description: Describe your new bucket
+  title: Teacher Speciality
+  description: Teacher Speciality Bucket
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
-      description: Title of the row
+      description: Name of Speciality
       options:
         position: left
   acl:
