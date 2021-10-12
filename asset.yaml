@@ -103,11 +103,11 @@ spec:
   title: Video Packet
   description: Packet of Videos
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
       description: Title of packet
@@ -505,11 +505,11 @@ spec:
   title: Video Packet
   description: Packet of Videos
   icon: view_stream
-  primary: title
+  primary: name
   readOnly: false
   history: false
   properties:
-    title:
+    name:
       type: string
       title: name
       description: Title of packet
