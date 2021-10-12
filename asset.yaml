@@ -35,12 +35,6 @@ spec:
       description: Phone Number of Teacher
       options:
         position: bottom
-    speciality:
-      type: string
-      title: speciality
-      description: Speciality of Teacher
-      options:
-        position: bottom
     gender:
       type: string
       title: gender
@@ -394,12 +388,6 @@ spec:
       type: string
       title: phone_number
       description: Phone Number of Teacher
-      options:
-        position: bottom
-    speciality:
-      type: string
-      title: speciality
-      description: Speciality of Teacher
       options:
         position: bottom
     gender:
