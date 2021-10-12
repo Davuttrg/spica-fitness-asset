@@ -312,7 +312,7 @@ spec:
       description: Surname of User
       options:
         position: bottom
-   gender:
+    gender:
       type: string
       title: gender
       description: Gender of User
@@ -708,7 +708,7 @@ spec:
   readOnly: false
   history: false
   properties:
-     title:
+    title:
       type: string
       title: title
       description: Title of Performance
