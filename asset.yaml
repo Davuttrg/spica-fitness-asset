@@ -321,7 +321,7 @@ spec:
   properties:
     name:
       type: string
-      name: name
+      title: name
       description: Name of User
       options:
         position: left
