@@ -297,7 +297,7 @@ spec:
   properties:
     name:
       type: string
-      name: name
+      title: name
       description: Name
       options:
         position: left
@@ -427,7 +427,7 @@ spec:
         - other
     picture:
       type: storage
-      title: image
+      title: picture
       description: Profile Picture of Teacher
       options:
         position: bottom
@@ -835,7 +835,7 @@ spec:
   properties:
     name:
       type: string
-      name: name
+      title: name
       description: Name of Training
       options:
         position: left
@@ -894,7 +894,7 @@ spec:
   properties:
     name:
       type: string
-      name: name
+      title: name
       description: Name
       options:
         position: left
