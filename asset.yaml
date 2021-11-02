@@ -23,132 +23,6 @@ spec:
     read: true==true
   order: 35
 ---
-# BUCKET - Fitness Teacher
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-teacher
-spec:
-  title: Teacher
-  description: Teacher Bucket
-  icon: view_stream
-  primary: mail
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Teacher
-      options:
-        position: left
-    surname:
-      type: string
-      title: surname
-      description: Surname of Teacher
-      options:
-        position: bottom
-    mail:
-      type: string
-      title: mail
-      description: Mail of Teacher
-      options:
-        position: bottom
-    phone_number:
-      type: string
-      title: phone_number
-      description: Phone Number of Teacher
-      options:
-        position: bottom
-    gender:
-      type: string
-      title: gender
-      description: Gender of Teacher
-      options:
-        position: bottom
-      enum:
-        - male
-        - female
-        - other
-    picture:
-      type: storage
-      title: picture
-      description: Profile Picture of Teacher
-      options:
-        position: bottom
-    birthday:
-      type: date
-      title: birthday
-      description: Birthday of Teacher
-      options:
-        position: bottom
-    created_at:
-      type: date
-      title: created_at
-      description: Entry created date
-      options:
-        position: bottom
-      default: :created_at
-  acl:
-    write: true==true
-    read: true==true
-  order: 25
----
-# BUCKET - Fitness Video Packet
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-video-packet
-spec:
-  title: Video Packet
-  description: Packet of Videos
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Title of packet
-      options:
-        position: left
-  acl:
-    write: true==true
-    read: true==true
-  order: 27
----
-# BUCKET - Fitness Food Program
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-food-program
-spec:
-  title: Food Program
-  description: Food Program Bucket
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Program
-      options:
-        position: left
-    created_at:
-      type: date
-      title: created_at
-      description: Entry created date
-      options:
-        position: bottom
-      default: :created_at
-  acl:
-    write: true==true
-    read: true==true
-  order: 28
----
 # BUCKET - Fitness Video
 apiVersion: bucket/v1
 kind: Schema
@@ -183,7 +57,7 @@ spec:
     vip:
       type: boolean
       title: vip
-      description: Is it only available for vip person ? 
+      description: Is it only available for vip person ?
       options:
         position: bottom
       default: false
@@ -210,101 +84,6 @@ spec:
     write: true==true
     read: true==true
   order: 29
----
-# BUCKET - Fitness Performance
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-performance
-spec:
-  title: Performance
-  description: Performance of User
-  icon: view_stream
-  primary: title
-  readOnly: false
-  history: false
-  properties:
-    title:
-      type: string
-      title: title
-      description: Title of Performance
-      options:
-        position: bottom
-    created_at:
-      type: date
-      title: created_at
-      description: Entry created date
-      options:
-        position: bottom
-      default: :created_at
-    metrics:
-      type: array
-      title: metrics
-      description: Metrics of Performance
-      options:
-        position: bottom
-      items:
-        title: Items of Metrics
-        type: object
-        properties:
-          value:
-            type: number
-            title: value
-            description: Value of Item
-            options:
-              position: bottom
-  acl:
-    write: true==true
-    read: true==true
-  order: 31
----
-# BUCKET - Fitness training
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-training
-spec:
-  title: Training
-  description: User Training
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Training
-      options:
-        position: left
-  acl:
-    write: true==true
-    read: true==true
-  order: 33
----
-# BUCKET - fitness my watched video
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-my-watched-video
-spec:
-  title: Watched Video
-  description: Watched Video of User
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name
-      options:
-        position: left
-  acl:
-    write: true==true
-    read: true==true
-  order: 34
 ---
 # BUCKET - Fitness User
 apiVersion: bucket/v1
@@ -621,7 +400,7 @@ spec:
     vip:
       type: boolean
       title: vip
-      description: Is it only available for vip person ? 
+      description: Is it only available for vip person ?
       options:
         position: bottom
       default: false
