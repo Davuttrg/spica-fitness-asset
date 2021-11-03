@@ -695,7 +695,7 @@ spec:
       description: Video of Watched Video
       options:
         position: bottom
-      relationType: onetomany
+      relationType: onetoone
       dependent: false
       primary: name
       bucket:
