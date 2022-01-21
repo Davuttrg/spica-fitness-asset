@@ -1,99 +1,12 @@
----
-# BUCKET - Speciality
+# BUCKET - User
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: teacher-speciality
-spec:
-  title: Teacher Speciality
-  description: Teacher Speciality Bucket
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Speciality
-      options:
-        position: left
-  acl:
-    write: true==true
-    read: true==true
-  order: 35
----
-# BUCKET - Fitness Video
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-video
-spec:
-  title: Video
-  description: Video Bucket
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Video
-      options:
-        position: left
-    description:
-      type: textarea
-      title: description
-      description: Description of Video
-      options:
-        position: right
-    image:
-      type: storage
-      title: image
-      description: Image of Video
-      options:
-        position: bottom
-    vip:
-      type: boolean
-      title: vip
-      description: Is it only available for vip person ?
-      options:
-        position: bottom
-      default: false
-    duration:
-      type: number
-      title: duration
-      description: Duration of Video
-      options:
-        position: bottom
-    video:
-      type: storage
-      title: video
-      description: Video File
-      options:
-        position: bottom
-    upload_date:
-      type: date
-      title: upload_date
-      description: Entry Upload Date
-      options:
-        position: bottom
-      default: :created_at
-  acl:
-    write: true==true
-    read: true==true
-  order: 29
----
-# BUCKET - Fitness User
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-user
+  name: spica-fitness-asset-user-bucket
 spec:
   title: User
-  description: User Bucket
-  icon: view_stream
+  description: Describe your new bucket
+  icon: fitness_center
   primary: mail
   readOnly: false
   history: false
@@ -101,19 +14,19 @@ spec:
     name:
       type: string
       title: name
-      description: Name of User
+      description: Description of the name input
       options:
-        position: left
+        position: bottom
     surname:
       type: string
       title: surname
-      description: Surname of User
+      description: Description of the surname input
       options:
         position: bottom
     gender:
       type: string
       title: gender
-      description: Gender of User
+      description: Description of the gender input
       options:
         position: bottom
       enum:
@@ -123,49 +36,89 @@ spec:
     vip:
       type: boolean
       title: vip
-      description: Is this User Vip?
+      description: Description of the vip input
       options:
         position: bottom
       default: false
     birthdate:
       type: date
       title: birthdate
-      description: Birthdate of User
+      description: Description of the birthdate input
       options:
         position: bottom
     created_at:
       type: date
       title: created_at
-      description: Entry created date
+      description: Description of the created_at input
       options:
         position: bottom
-      default: :created_at
     phone_number:
       type: string
       title: phone_number
-      description: Number of User
+      description: Description of the phone_number input
       options:
         position: bottom
     mail:
       type: string
       title: mail
-      description: Mail of User
+      description: Description of the mail input
       options:
         position: bottom
+    image:
+      type: storage
+      title: image
+      description: Description of the image input
+      options:
+        position: bottom
+    identity_id:
+      type: string
+      title: identity_id
+      description: Description of the identity_id input
+      options:
+        position: bottom
+    membership_level:
+      type: string
+      title: membership_level
+      description: Description of the membership_level input
+      options:
+        position: bottom
+      enum:
+        - bronze
+        - silver
+        - gold
+    is_member:
+      type: boolean
+      title: is_member
+      description:  Description of the is_member input
+      options:
+        position: bottom
+      default: false
+    buyed_videos:
+      type: relation
+      title: buyed_videos
+      description: Buyed Videos
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: name
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-video-bucket
   acl:
     write: true==true
     read: true==true
-  order: 24
+  order: 0
 ---
-# BUCKET - Fitness Teacher
+# BUCKET - Teacher
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-teacher
+  name: spica-fitness-asset-teacher-bucket
 spec:
   title: Teacher
   description: Teacher Bucket
-  icon: view_stream
+  icon: fitness_center
   primary: mail
   readOnly: false
   history: false
@@ -229,61 +182,32 @@ spec:
       description: Speciality of Teacher
       options:
         position: bottom
-      relationType: onetoone
+      relationType: onetomany
       dependent: false
+      primary: name
       bucket:
         resourceFieldRef:
-          schemaName: teacher-speciality
-  acl:
-    write: true==true
-    read: true==true
-  order: 25
----
-# BUCKET - Fitness Video Category
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-video-category
-spec:
-  title: Category
-  description: Category Bucket
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Category
-      options:
-        position: left
-    description:
+          schemaName: spica-fitness-asset-teacher-speciality-bucket
+    biography:
       type: textarea
-      title: description
-      description: Description of Category
-      options:
-        position: right
-    image:
-      type: storage
-      title: image
-      description: Image of Category
+      title: biography
+      description: Description of the biography input
       options:
         position: bottom
   acl:
     write: true==true
     read: true==true
-  order: 26
+  order: 1
 ---
-# BUCKET - Fitness Video Packet
+# BUCKET - Video Packet
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-video-packet
+  name: spica-fitness-asset-video-packet-bucket
 spec:
   title: Video Packet
   description: Packet of Videos
-  icon: view_stream
+  icon: fitness_center
   primary: name
   readOnly: false
   history: false
@@ -305,21 +229,21 @@ spec:
       primary: name
       bucket:
         resourceFieldRef:
-          schemaName: fitness-video
+          schemaName: spica-fitness-asset-video-bucket
   acl:
     write: true==true
     read: true==true
-  order: 27
+  order: 2
 ---
-# BUCKET - Fitness Food Program
+# BUCKET - Food Program
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-food-program
+  name: spica-fitness-asset-food-program-bucket
 spec:
   title: Food Program
   description: Food Program Bucket
-  icon: view_stream
+  icon: fitness_center
   primary: name
   readOnly: false
   history: false
@@ -333,7 +257,7 @@ spec:
     user:
       type: relation
       title: user
-      description: User of Program
+      description: Description of the user input
       options:
         position: bottom
       relationType: onetoone
@@ -341,7 +265,7 @@ spec:
       primary: mail
       bucket:
         resourceFieldRef:
-          schemaName: fitness-user
+          schemaName: spica-fitness-asset-user-bucket
     teacher:
       type: relation
       title: teacher
@@ -353,7 +277,7 @@ spec:
       primary: mail
       bucket:
         resourceFieldRef:
-          schemaName: fitness-teacher
+          schemaName: spica-fitness-asset-teacher-bucket
     created_at:
       type: date
       title: created_at
@@ -361,20 +285,68 @@ spec:
       options:
         position: bottom
       default: :created_at
+    days:
+      type: array
+      title: days
+      description: Description of the days input
+      options:
+        position: bottom
+      items:
+        title: Title of the items
+        type: object
+        properties:
+          day_of_week:
+            type: number
+            title: day_of_week
+            description: Description of the day_of_week input
+            options:
+              position: bottom
+            minimum: 0
+            maximum: 7
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+              - 6
+              - 7
+          meal:
+            type: array
+            title: meal
+            description: Description of the meal input
+            options:
+              position: bottom
+            items:
+              title: Title of the items
+              type: object
+              properties:
+                description:
+                  type: richtext
+                  title: description
+                  description: Description of the description input
+                  options:
+                    position: bottom
+                number_of_meal:
+                  type: number
+                  title: number_of_meal
+                  description: Description of the number_of_meal input
+                  options:
+                    position: bottom
   acl:
     write: true==true
     read: true==true
-  order: 28
+  order: 3
 ---
-# BUCKET - Fitness Video
+# BUCKET - Video
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-video
+  name: spica-fitness-asset-video-bucket
 spec:
   title: Video
   description: Video Bucket
-  icon: view_stream
+  icon: fitness_center
   primary: name
   readOnly: false
   history: false
@@ -416,28 +388,6 @@ spec:
       description: Video File
       options:
         position: bottom
-    teacher:
-      type: relation
-      title: teacher
-      description: Teacher of Video
-      options:
-        position: bottom
-      relationType: onetoone
-      dependent: false
-      bucket:
-        resourceFieldRef:
-          schemaName: fitness-teacher
-    category:
-      type: relation
-      title: category
-      description: Category of Video
-      options:
-        position: bottom
-      relationType: onetoone
-      dependent: false
-      bucket:
-        resourceFieldRef:
-          schemaName: fitness-video-category
     upload_date:
       type: date
       title: upload_date
@@ -445,20 +395,98 @@ spec:
       options:
         position: bottom
       default: :created_at
+    category:
+      type: relation
+      title: category
+      description: Description of the category input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: name
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-category-bucket
+    teacher:
+      type: relation
+      title: teacher
+      description: Description of the teacher input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-teacher-bucket
+    permissions:
+      type: multiselect
+      title: permissions
+      description: Description of the permissions input
+      options:
+        position: bottom
+      items:
+        type: string
+        enum:
+          - bronze
+          - silver
+          - gold
+    price:
+      type: number
+      title: price
+      description: Description of the price input
+      options:
+        position: bottom
+      default: 0
   acl:
     write: true==true
     read: true==true
-  order: 29
+  order: 4
 ---
-# BUCKET - Fitness Weekly Program
+# BUCKET - Category
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-weekly-program
+  name: spica-fitness-asset-category-bucket
+spec:
+  title: Category
+  description: Category Bucket
+  icon: fitness_center
+  primary: name
+  readOnly: false
+  history: false
+  properties:
+    name:
+      type: string
+      title: name
+      description: Name of Category
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of Category
+      options:
+        position: right
+    img:
+      type: storage
+      title: img
+      description: Description of the img input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 5
+---
+# BUCKET - Weekly Program
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: spica-fitness-asset-weekly-program-bucket
 spec:
   title: Weekly Program
   description: Weekly Program Bucket
-  icon: view_stream
+  icon: fitness_center
   primary: name
   readOnly: false
   history: false
@@ -469,33 +497,71 @@ spec:
       description: Name of Weekly Program
       options:
         position: left
-    description:
-      type: textarea
-      title: description
-      description: Description of Weekly Program
+    days:
+      type: array
+      title: days
+      description: Description of the days input
       options:
-        position: right
+        position: left
+      items:
+        title: Title of the items
+        type: object
+        properties:
+          day_of_week:
+            type: string
+            title: day_of_week
+            description: Description of the day_of_week input
+            options:
+              position: bottom
+          hours:
+            type: array
+            title: hours
+            description: Description of the hours input
+            options:
+              position: bottom
+            items:
+              title: Title of the items
+              type: object
+              properties:
+                from:
+                  type: string
+                  title: from
+                  description: Description of the from input
+                  options:
+                    position: bottom
+                until:
+                  type: string
+                  title: until
+                  description: Description of the until input
+                  options:
+                    position: bottom
+                description:
+                  type: string
+                  title: description
+                  description: Description of the description input
+                  options:
+                    position: bottom
     created_at:
       type: date
       title: created_at
       description: Entry created date
       options:
-        position: bottom
+        position: right
       default: :created_at
   acl:
     write: true==true
     read: true==true
-  order: 30
+  order: 6
 ---
-# BUCKET - Fitness Performance
+# BUCKET - Performance
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-performance
+  name: spica-fitness-asset-performance-bucket
 spec:
   title: Performance
   description: Performance of User
-  icon: view_stream
+  icon: fitness_center
   primary: title
   readOnly: false
   history: false
@@ -506,18 +572,6 @@ spec:
       description: Title of Performance
       options:
         position: bottom
-    user:
-      type: relation
-      title: user
-      description: User of Performance
-      options:
-        position: bottom
-      relationType: onetoone
-      dependent: false
-      primary: mail
-      bucket:
-        resourceFieldRef:
-          schemaName: fitness-user
     teacher:
       type: relation
       title: teacher
@@ -529,34 +583,19 @@ spec:
       primary: mail
       bucket:
         resourceFieldRef:
-          schemaName: fitness-teacher
-    metrics:
-      type: array
-      title: metrics
-      description: Metrics of Performance
+          schemaName: spica-fitness-asset-teacher-bucket
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
       options:
         position: bottom
-      items:
-        title: Items of Metrics
-        type: object
-        properties:
-          value:
-            type: number
-            title: value
-            description: Value of Item
-            options:
-              position: bottom
-          metric:
-            type: relation
-            title: metric
-            description: Metric of Item
-            options:
-              position: bottom
-            relationType: onetoone
-            dependent: false
-            bucket:
-              resourceFieldRef:
-                schemaName: fitness-metric
+      relationType: onetoone
+      dependent: false
+      primary: mail
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-user-bucket
     created_at:
       type: date
       title: created_at
@@ -564,51 +603,64 @@ spec:
       options:
         position: bottom
       default: :created_at
-  acl:
-    write: true==true
-    read: true==true
-  order: 31
----
-# BUCKET - Fitness Metric
-apiVersion: bucket/v1
-kind: Schema
-metadata:
-  name: fitness-metric
-spec:
-  title: Metric
-  description: Metric Bucket
-  icon: view_stream
-  primary: name
-  readOnly: false
-  history: false
-  properties:
-    name:
-      type: string
-      title: name
-      description: Name of Metric
-      options:
-        position: left
-    unit:
-      type: string
-      title: unit
-      description: Unit of Metric
+    metrics:
+      type: object
+      title: metrics
+      description: Description of the metrics input
       options:
         position: bottom
+      properties:
+        left_arm:
+          type: string
+          title: left_arm
+          description: Description of the left_arm input
+          options:
+            position: bottom
+        right_arm:
+          type: string
+          title: right_arm
+          description: Description of the right_arm input
+          options:
+            position: bottom
+        right_leg:
+          type: string
+          title: right_leg
+          description: Description of the right_leg input
+          options:
+            position: bottom
+        left_leg:
+          type: string
+          title: left_leg
+          description: Description of the left_leg input
+          options:
+            position: bottom
+        shoulders:
+          type: string
+          title: shoulders
+          description: Description of the shoulders input
+          options:
+            position: bottom
+        weight:
+          type: string
+          title: weight
+          description: Description of the weight input
+          options:
+            position: bottom
   acl:
     write: true==true
     read: true==true
-  order: 32
+  order: 7
 ---
-# BUCKET - Fitness training
+# BUCKET - Training
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-training
+  name: spica-fitness-asset-training-bucket
 spec:
   title: Training
   description: User Training
-  icon: view_stream
-  primary: name
+  icon: fitness_center
+  primary: description
   readOnly: false
   history: false
   properties:
@@ -618,30 +670,18 @@ spec:
       description: Name of Training
       options:
         position: left
-    user:
-      type: relation
-      title: user
-      description: User of Training
-      options:
-        position: bottom
-      relationType: onetomany
-      dependent: false
-      primary: mail
-      bucket:
-        resourceFieldRef:
-          schemaName: fitness-user
     packet:
       type: relation
       title: packet
       description: Packet of Training
       options:
         position: bottom
-      relationType: onetomany
+      relationType: onetoone
       dependent: false
-      primary: title
+      primary: name
       bucket:
         resourceFieldRef:
-          schemaName: fitness-video-packet
+          schemaName: spica-fitness-asset-video-packet-bucket
     teacher:
       type: relation
       title: teacher
@@ -650,23 +690,90 @@ spec:
         position: bottom
       relationType: onetoone
       dependent: false
+      primary: mail
       bucket:
         resourceFieldRef:
-          schemaName: fitness-teacher
+          schemaName: spica-fitness-asset-teacher-bucket
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: mail
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-user-bucket
+    description:
+      type: textarea
+      title: description
+      description: Description of the description input
+      options:
+        position: bottom
   acl:
     write: true==true
     read: true==true
-  order: 33
+  order: 8
+---
+# BUCKET - Teacher Speciality
+apiVersion: bucket/v1
+kind: Schema
+metadata:
+  name: spica-fitness-asset-teacher-speciality-bucket
+spec:
+  title: Teacher Speciality
+  description: Teacher Speciality Bucket
+  icon: fitness_center
+  primary: name
+  readOnly: false
+  history: false
+  properties:
+    name:
+      type: string
+      title: name
+      description: Name of Speciality
+      options:
+        position: left
+    description:
+      type: textarea
+      title: description
+      description: Description of the description input
+      options:
+        position: bottom
+    categories:
+      type: relation
+      title: categories
+      description: Description of the categories input
+      options:
+        position: bottom
+      relationType: onetomany
+      dependent: false
+      primary: name
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-category-bucket
+    img:
+      type: storage
+      title: img
+      description: Description of the img input
+      options:
+        position: bottom
+  acl:
+    write: true==true
+    read: true==true
+  order: 9
 ---
 # BUCKET - Watched Video
 apiVersion: bucket/v1
 kind: Schema
 metadata:
-  name: fitness-my-watched-video
+  name: spica-fitness-asset-watched-video-bucket
 spec:
   title: Watched Video
   description: Watched Video of User
-  icon: view_stream
+  icon: fitness_center
   primary: name
   readOnly: false
   history: false
@@ -677,18 +784,6 @@ spec:
       description: Name
       options:
         position: left
-    user:
-      type: relation
-      title: user
-      description: User of Watched Video
-      options:
-        position: bottom
-      relationType: onetoone
-      dependent: false
-      primary: mail
-      bucket:
-        resourceFieldRef:
-          schemaName: fitness-user
     video:
       type: relation
       title: video
@@ -700,8 +795,82 @@ spec:
       primary: name
       bucket:
         resourceFieldRef:
-          schemaName: fitness-video
+          schemaName: spica-fitness-asset-video-bucket
+    watched_date:
+      type: date
+      title: watched_date
+      description: Description of the watched_date input
+      options:
+        position: bottom
+      default: :updated_at
+    user:
+      type: relation
+      title: user
+      description: Description of the user input
+      options:
+        position: bottom
+      relationType: onetoone
+      dependent: false
+      primary: mail
+      bucket:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-user-bucket
   acl:
     write: true==true
     read: true==true
-  order: 34
+  order: 10
+---
+# API KEY
+apiVersion: passport/v1
+kind: ApiKey
+metadata:
+  name: fitness-asset-apikey
+spec:
+  name: Secret Api Key For Fitness
+  policies:
+    - BucketFullAccess
+    - FunctionFullAccess
+    - IdentityFullAccess
+---
+# FUNCTION - Fitness Authorization
+apiVersion: function/v1
+kind: Function
+metadata:
+  name: spica-fitness-asset-authorization-function
+spec:
+  language: javascript
+  timeout: 25
+  description: Authorization process
+  environment:
+    - name: USER_BUCKET_ID
+      valueFrom:
+        resourceFieldRef:
+          schemaName: spica-fitness-asset-user-bucket
+    - name: SECRET_API_KEY
+      valueFrom:
+        resourceFieldRef:
+          apiKeyName: fitness-asset-apikey
+  dependency:
+    - name: "@spica-devkit/bucket"
+      version: latest
+    - name: "@spica-devkit/identity"
+      version: latest
+  title: Fitness Authorization
+  code: ./function/spica-fitness-asset-authorization-function.js
+  runtime:
+    name: Node
+    language: Javascript
+---
+# TRIGGER - register
+apiVersion: function/v1
+kind: Trigger
+metadata:
+  name: register
+spec:
+  type: http
+  active: true
+  name: register
+  func: spica-fitness-asset-authorization-function
+  httpOptions:
+    method: Post
+    path: /register
